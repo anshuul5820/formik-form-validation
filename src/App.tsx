@@ -22,27 +22,13 @@ const App = () => {
       <form onSubmit={formik.handleSubmit}>
         <div className='form-group'>
           <label htmlFor='email'>Email here:</label>
-          <input
-            type='email'
-            id='email'
-            className='form-control'
-            onChange={formik.handleChange}
-            value={formik.values.email}
-            onBlur={formik.handleBlur}
-          />
+          <input type='email' id='email' className='form-control' {...formik.getFieldProps('email')} />
           {formik.touched.email && formik.errors.email ? <p>{formik.errors.email}</p> : null}
         </div>
 
         <div className='form-group'>
           <label htmlFor='password'>Password here:</label>
-          <input
-            type='password'
-            id='password'
-            className='form-control'
-            onChange={formik.handleChange}
-            value={formik.values.password}
-            onBlur={formik.handleBlur}
-          />
+          <input type='password' id='password' className='form-control' {...formik.getFieldProps('password')} />
           {formik.touched.password && formik.errors.password ? <p>{formik.errors.password}</p> : null}
         </div>
 
